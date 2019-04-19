@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from './components/Button';
-import KeyPairing from './components/KeyPairing';
+import AccountCreator from './components/AccountCreator';
 
 export default class App extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
         <Text style = {{fontSize: 20, marginBottom: 20}}>
           EOS Public Key Private Key Generation
         </Text>
-        <KeyPairing />
+        <AccountCreator />
       </View>
     );
   }

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Button from './Button';
 import config from '../config';
 
-export default class App extends React.Component {
+export default class AccountCreator extends React.Component {
   state = {
     owner: '',
     active: '',
