@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from './Button';
+import Input from './Input';
 import config from '../config';
 
 export default class AccountCreator extends React.Component {
   state = {
     owner: '',
     active: '',
+    name: '',
     loaded: false
   }
 
@@ -34,14 +36,31 @@ export default class AccountCreator extends React.Component {
     } catch (err) {
       console.log(err)
     }
+  }
 
+  createAccount = async () => {
+
+  }
+
+  onInputChange = (key, value) => {
+    this.setState(prevState => ({
+      ...prevState,
+      [key]: value
+    }))
   }
 
   render() {
     return (
       <View>
+        <Input
+          placeholder="Account Name"
+          type='name'
+          name='name'
+          onChangeText={this.onInputChange}
+          value={this.state.name}
+        />
         <Button
-          title='Generate Key Pairing'
+          title='Create New EOS Account'
           onPress={this.generateKeyPairing}
          />
         { this.state.loaded ? (
