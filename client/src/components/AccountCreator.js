@@ -21,7 +21,7 @@ export default class AccountCreator extends React.Component {
       console.log(res);
 
       var keys = await res.json();
-      console.log(keys)
+      console.log(keys);
       this.setState({
         loaded: true,
         owner: {
@@ -39,7 +39,26 @@ export default class AccountCreator extends React.Component {
   }
 
   createAccount = async () => {
+    try{
+      console.log(this.state.name);
 
+      const res = await fetch(`${config.API_ADDR}/api/create-account`, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: this.state.name
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        }
+      });
+
+      var json = await res.json();
+      console.log(json);
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   onInputChange = (key, value) => {
@@ -47,6 +66,7 @@ export default class AccountCreator extends React.Component {
       ...prevState,
       [key]: value
     }))
+    console.log(this.state.name);
   }
 
   render() {
@@ -61,7 +81,7 @@ export default class AccountCreator extends React.Component {
         />
         <Button
           title='Create New EOS Account'
-          onPress={this.generateKeyPairing}
+          onPress={this.createAccount}
          />
         { this.state.loaded ? (
             <View>
