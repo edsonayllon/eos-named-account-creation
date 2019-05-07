@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text style = {{fontSize: 20, marginBottom: 20}}>
-          EOS Public Key Private Key Generation
+          EOS Account Creator
         </Text>
         <AccountCreator />
       </View>

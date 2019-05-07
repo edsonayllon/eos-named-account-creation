@@ -9,7 +9,8 @@ export default class AccountCreator extends React.Component {
     owner: '',
     active: '',
     name: '',
-    loaded: false
+    loaded: false,
+    message: ''
   }
 
   generateKeyPairing = async () => {
@@ -55,6 +56,23 @@ export default class AccountCreator extends React.Component {
 
       var json = await res.json();
       console.log(json);
+      var keys = json.keys;
+      var trx = json.transaction;
+      if (trx.processed.receipt.status === 'executed') {
+        this.setState({
+          loaded: true,
+          owner: {
+            private: keys.privateKeys.owner,
+            public: keys.publicKeys.owner
+          },
+          active: {
+            private: keys.privateKeys.active,
+            public: keys.publicKeys.active
+          },
+          message: 'Account created, below are your keys, save them'
+        })
+      }
+
 
     } catch (err) {
       console.log(err)
@@ -85,6 +103,9 @@ export default class AccountCreator extends React.Component {
          />
         { this.state.loaded ? (
             <View>
+              <Text style={{ marginTop: 12, fontWeight: '600', fontSize: 20}}>
+                {this.state.message}
+              </Text>
               <Text style={{ marginTop: 12, fontWeight: '600'}}>
                 Owner Keys
               </Text>

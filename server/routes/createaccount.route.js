@@ -63,7 +63,7 @@ router.post('/', async (req, res, next) => {
       data: {
         payer: 'james',
         receiver: req.body.name,
-        bytes: 8192,
+        bytes: 819200000,
       },
     },
     {
@@ -76,8 +76,8 @@ router.post('/', async (req, res, next) => {
       data: {
         from: 'james',
         receiver: req.body.name,
-        stake_net_quantity: '1.0000 EOS',
-        stake_cpu_quantity: '1.0000 EOS',
+        stake_net_quantity: '0.0001 EOS',
+        stake_cpu_quantity: '0.0001 EOS',
         transfer: false,
       }
     }]
@@ -86,14 +86,28 @@ router.post('/', async (req, res, next) => {
     expireSeconds: 30,
   });
 
-    console.dir(result);
+    console.log({
+      keys: keys,
+      transaction: result
+    });
+    res.json({
+      keys: keys,
+      transaction: result
+    });
   } catch (e) {
     console.log('\nCaught exception: ' + e);
     if (e instanceof RpcError)
     console.log(JSON.stringify(e.json, null, 2));
+
+    console.log({
+      keys: keys,
+      transaction: result
+    });
+    res.json({
+      keys: keys,
+      transaction: result
+    });
   }
-  console.dir(result,keys);
-  res.json(keys);
 });
 
 module.exports = router;
