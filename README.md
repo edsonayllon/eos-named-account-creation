@@ -10,7 +10,7 @@ status: complete
 twitter: https://twitter.com/relativeread
 ---
 
-## Modular 8-2019
+## Modular 9-2019
 
 # EOS Named Account Creation
 
