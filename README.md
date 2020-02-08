@@ -1,17 +1,27 @@
-# EOS Public Key Private Key Generator
+---
+author: Edson Ayllon
+category: functionality
+tags:
+- EOSIO
+- React
+- Node
+- Express
+status: complete
+twitter: https://twitter.com/relativeread
+---
 
-## 1 | Description
+## Modular 8-2019
 
-Generates public key, private key pairings for EOS. Uses React, React Native and Node.js Express.
+# EOS Named Account Creation
 
-![web](webscreen.png)
-
-![mobile](mobilescreen.gif)
-
-## 2 | Getting Started
+Creates an eos account name via a frontend
 
 
-### 2.1 Installation
+
+## 1 | Getting Started
+
+
+### 1.1 Installation
 
 Clone, then install dependencies in the server and client.
 
@@ -25,7 +35,7 @@ cd client
 npm install
 ```
 
-### 2.1 Running
+### 1.2 Running
 
 Run the server first, then the client.
 
